@@ -3,5 +3,5 @@ venv
 .ipynb
 private
 data
-tf_idf
+tf_idf**
 test_with_labels.csv

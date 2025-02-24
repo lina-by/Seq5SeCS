@@ -31,7 +31,7 @@ def load_and_prepare_data(filepath):
 
 def perform_tfidf(corpus, output_dir):
     os.makedirs(output_dir, exist_ok=True)
-    vectorizer = TfidfVectorizer()
+    vectorizer = TfidfVectorizer(ngram_range=(1,2))
     X = vectorizer.fit_transform(corpus.text)
     with open(os.path.join(output_dir, 'tfidf_vectorizer.pkl'), 'wb') as f:
         pickle.dump(vectorizer, f)
@@ -66,7 +66,9 @@ def retrieve(x, X_pca, corpus):
 def evaluate_model(validation_s, vectorizer, pca, X_pca, corpus, n_components=None, X_test_pca=None):
     if X_test_pca is None:
         X_test = vectorizer.transform(validation_s.Text)
-        X_test_pca = pca.transform(X_test.toarray())
+        X_test_pca = pca.transform(X_test.toarray().astype(np.float32))  # Uses 32-bit instead of 64-bit
+
+        #X_test_pca = pca.transform(X_test.toarray())
     if n_components is not None:
         X_pca = X_pca[:, :n_components]
         X_test_pca = X_test_pca[:, :n_components]
@@ -104,7 +106,6 @@ def visualize_errors(validation_s, y_predict, corpus, output_dir):
     word_counts = corpus.set_index('langue').text.apply(lambda x: len(x.split()))
     labels = set(validation_s.Label.unique()) & set(corpus.langue.unique())
     tpr = {}
-    tnr = {}
     
     for label in labels:
         true_positives = np.sum((validation_s.Label == label) & (y_predict == label))
@@ -123,9 +124,26 @@ def visualize_errors(validation_s, y_predict, corpus, output_dir):
     plt.savefig(os.path.join(output_dir, 'error_visualization.png'))
     plt.close()
 
+def apply_pca_in_batches(pca, X_test, batch_size=100):
+    X_test_pca_list = []  # Store transformed batches
+
+    for i in tqdm(range(0, X_test.shape[0], batch_size)):
+
+        batch = X_test[i : i + batch_size].toarray()  # Convert batch to dense
+        batch_pca = pca.transform(batch)  # Apply PCA
+        X_test_pca_list.append(batch_pca)  # Store result
+
+        del batch
+        del batch_pca
+
+    X_test_pca = np.vstack(X_test_pca_list)  # Combine batches into one array
+
+    del X_test_pca_list
+    return X_test_pca
+
 if __name__ == "__main__":
     data_path = 'data/train_submission.csv'
-    output_dir = 'tf_idf'
+    output_dir = 'tf_idf_1_2_gram'
     
     if not os.path.exists(output_dir):
         print('compute pca')
@@ -143,11 +161,17 @@ if __name__ == "__main__":
     with open(os.path.join(output_dir, 'pca_matrix.pkl'), 'rb') as f:
         X_pca = pickle.load(f)
     
-    y_predict, accuracy = evaluate_model(validation_s, vectorizer, pca, X_pca, corpus)
+    save_path = os.path.join(output_dir, "X_test_pca.npy")
+    
+    if os.path.exists(save_path):
+        X_test_pca = np.load(save_path)
+    else:
+        X_test = vectorizer.transform(validation_s.Text)
+        X_test_pca = apply_pca_in_batches(pca, X_test, 500)
+        np.save(save_path, X_test_pca)
+
+    y_predict, accuracy = evaluate_model(validation_s, vectorizer, pca, X_pca, corpus, X_test_pca=X_test_pca)
     print(f'Final Accuracy: {accuracy * 100:.2f}%')
-    
+
     visualize_errors(validation_s, y_predict, corpus, output_dir)
-    
-    # X_test = vectorizer.transform(validation_s.Text)
-    # X_test_pca = pca.transform(X_test.toarray())
-    # analyze_performance(validation_s, vectorizer, pca, X_pca, output_dir, X_test_pca=X_test_pca)
+    analyze_performance(validation_s, vectorizer, pca, X_pca, output_dir, X_test_pca=X_test_pca)
