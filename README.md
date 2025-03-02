@@ -1,12 +1,9 @@
 # Seq5SeCS
 
-The main goal of this competition is to build an effective text classifier. The classes are: "Politics":, "Health", "Finance", "Travel", "Food", "Education", "Environment", "Fashion", "Science", "Sports", "Technology" and "Entertainment".
-We will investigate several methods and highlight their performance as well as their computational efficiency, here modeled by running time.
+Language Identification is an essential aspect of almost every Natural Language Processing (NLP) pipeline. However, this task appears to be extremely fastidious when it comes to rarer languages, for which obtaining a clear and unbiased dataset is particularly difficult. This work compares the performance and computational cost of different methods for language identification
 
 ## Method 1: Lexical fields analysis
 
 ## Method 2: Clustering on context vectors
 
 ## Method 3: Large Language Model
-
-## Method 4: ...
