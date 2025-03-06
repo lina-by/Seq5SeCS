@@ -7,3 +7,5 @@ Language Identification is an essential aspect of almost every Natural Language 
 ## Method 2: Clustering on context vectors
 
 ## Method 3: Large Language Model
+
+To train the XLM-RoBERTa model, run `python train_roberta.py` in `lm_training` folder. To infer the trained model on a dataset, run `python infer_roberta.py`.
