@@ -3,6 +3,8 @@ venv
 .ipynb
 private
 data
+new_data
+submits
+old_scripts
 tf_idf**
-test_with_labels.csv
-languages_in_roberta
+languages_in_roberta**
