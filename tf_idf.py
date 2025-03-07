@@ -11,7 +11,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.decomposition import PCA
 from sklearn.metrics import accuracy_score
 
-def tokenize(text):
+def separate_words(text):
     return re.findall(r'\b\w+\b', text.lower())
 
 def load_and_prepare_data(filepath):
@@ -22,7 +22,7 @@ def load_and_prepare_data(filepath):
     for lang, df in train_s.groupby('Label'):
         doc = []
         for phrase in df.Text:
-            doc += tokenize(phrase)
+            doc += separate_words(phrase)
         doc = ' '.join(doc)
         corpus.append({'langue': lang, 'text': doc})
     
@@ -31,7 +31,7 @@ def load_and_prepare_data(filepath):
 
 def perform_tfidf(corpus, output_dir):
     os.makedirs(output_dir, exist_ok=True)
-    vectorizer = TfidfVectorizer(ngram_range=(1,2))
+    vectorizer = TfidfVectorizer()
     X = vectorizer.fit_transform(corpus.text)
     with open(os.path.join(output_dir, 'tfidf_vectorizer.pkl'), 'wb') as f:
         pickle.dump(vectorizer, f)
@@ -39,7 +39,7 @@ def perform_tfidf(corpus, output_dir):
         pickle.dump(X, f)
     return X
 
-def perform_pca(X, output_dir, n_components=388):
+def perform_pca(X, output_dir, n_components=389):
     os.makedirs(output_dir, exist_ok=True)
     pca = PCA(n_components=n_components, svd_solver='full')
     X_pca = pca.fit_transform(X.toarray())
@@ -66,9 +66,7 @@ def retrieve(x, X_pca, corpus):
 def evaluate_model(validation_s, vectorizer, pca, X_pca, corpus, n_components=None, X_test_pca=None):
     if X_test_pca is None:
         X_test = vectorizer.transform(validation_s.Text)
-        X_test_pca = pca.transform(X_test.toarray().astype(np.float32))  # Uses 32-bit instead of 64-bit
-
-        #X_test_pca = pca.transform(X_test.toarray())
+        X_test_pca = pca.transform(X_test.toarray().astype(np.float32))  
     if n_components is not None:
         X_pca = X_pca[:, :n_components]
         X_test_pca = X_test_pca[:, :n_components]
@@ -143,7 +141,7 @@ def apply_pca_in_batches(pca, X_test, batch_size=100):
 
 if __name__ == "__main__":
     data_path = 'data/train_submission.csv'
-    output_dir = 'tf_idf_1_2_gram'
+    output_dir = 'tf_idf'
     
     if not os.path.exists(output_dir):
         print('compute pca')
