@@ -4,7 +4,7 @@ Language Identification is an essential aspect of almost every Natural Language 
 
 ## Method 1: Word frequency
 
-TO DO
+Run `python Word_frequency.py` in the Seq5SeCS directory. The validation accuracy will be displayed at the end of the run.
 
 ## Method 2: Inverse Word frequency
 
