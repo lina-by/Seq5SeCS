@@ -1,0 +1,472 @@
+{
+    "afr": {
+        "language": "Afrikaans",
+        "tokens_m": 242.0,
+        "size_gib": 1.3
+    },
+    "amh": {
+        "language": "Amharic",
+        "tokens_m": 68.0,
+        "size_gib": 0.8
+    },
+    "ara": {
+        "language": "Arabic",
+        "tokens_m": 2869.0,
+        "size_gib": 28.0
+    },
+    "asm": {
+        "language": "Assamese",
+        "tokens_m": 5.0,
+        "size_gib": 0.1
+    },
+    "aze": {
+        "language": "Azerbaijani",
+        "tokens_m": 783.0,
+        "size_gib": 6.5
+    },
+    "bel": {
+        "language": "Belarusian",
+        "tokens_m": 362.0,
+        "size_gib": 4.3
+    },
+    "bul": {
+        "language": "Bulgarian",
+        "tokens_m": 5487.0,
+        "size_gib": 57.5
+    },
+    "ben": {
+        "language": "Bengali",
+        "tokens_m": 525.0,
+        "size_gib": 8.4
+    },
+    "null": {
+        "language": "UrduRomanized",
+        "tokens_m": 85.0,
+        "size_gib": 0.5
+    },
+    "bre": {
+        "language": "Breton",
+        "tokens_m": 16.0,
+        "size_gib": 0.1
+    },
+    "bos": {
+        "language": "Bosnian",
+        "tokens_m": 14.0,
+        "size_gib": 0.1
+    },
+    "cat": {
+        "language": "Catalan",
+        "tokens_m": 1752.0,
+        "size_gib": 10.1
+    },
+    "cze (B)": {
+        "language": "Czech",
+        "tokens_m": 2498.0,
+        "size_gib": 16.3
+    },
+    "wel (B)": {
+        "language": "Welsh",
+        "tokens_m": 141.0,
+        "size_gib": 0.8
+    },
+    "dan": {
+        "language": "Danish",
+        "tokens_m": 7823.0,
+        "size_gib": 45.6
+    },
+    "ger (B)": {
+        "language": "German",
+        "tokens_m": 10297.0,
+        "size_gib": 66.6
+    },
+    "gre (B)": {
+        "language": "Greek",
+        "tokens_m": 4285.0,
+        "size_gib": 46.9
+    },
+    "eng": {
+        "language": "English",
+        "tokens_m": 55608.0,
+        "size_gib": 300.8
+    },
+    "epo": {
+        "language": "Esperanto",
+        "tokens_m": 157.0,
+        "size_gib": 0.9
+    },
+    "spa": {
+        "language": "Spanish",
+        "tokens_m": 9374.0,
+        "size_gib": 53.3
+    },
+    "est": {
+        "language": "Estonian",
+        "tokens_m": 843.0,
+        "size_gib": 6.1
+    },
+    "baq (B)": {
+        "language": "Basque",
+        "tokens_m": 270.0,
+        "size_gib": 2.0
+    },
+    "per (B)": {
+        "language": "Persian",
+        "tokens_m": 13259.0,
+        "size_gib": 111.6
+    },
+    "fin": {
+        "language": "Finnish",
+        "tokens_m": 6730.0,
+        "size_gib": 54.3
+    },
+    "fre (B)": {
+        "language": "French",
+        "tokens_m": 9780.0,
+        "size_gib": 56.8
+    },
+    "fry": {
+        "language": "WesternFrisian",
+        "tokens_m": 29.0,
+        "size_gib": 0.2
+    },
+    "gle": {
+        "language": "Irish",
+        "tokens_m": 86.0,
+        "size_gib": 0.5
+    },
+    "gla": {
+        "language": "ScottishGaelic",
+        "tokens_m": 21.0,
+        "size_gib": 0.1
+    },
+    "glg": {
+        "language": "Galician",
+        "tokens_m": 495.0,
+        "size_gib": 2.9
+    },
+    "guj": {
+        "language": "Gujarati",
+        "tokens_m": 140.0,
+        "size_gib": 1.9
+    },
+    "hau": {
+        "language": "Hausa",
+        "tokens_m": 56.0,
+        "size_gib": 0.3
+    },
+    "heb": {
+        "language": "Hebrew",
+        "tokens_m": 3399.0,
+        "size_gib": 31.6
+    },
+    "hin": {
+        "language": "Hindi",
+        "tokens_m": 1715.0,
+        "size_gib": 20.2
+    },
+    "hrv": {
+        "language": "Croatian",
+        "tokens_m": 3297.0,
+        "size_gib": 20.5
+    },
+    "hun": {
+        "language": "Hungarian",
+        "tokens_m": 7807.0,
+        "size_gib": 58.4
+    },
+    "arm (B)": {
+        "language": "Armenian",
+        "tokens_m": 421.0,
+        "size_gib": 5.5
+    },
+    "ind": {
+        "language": "Indonesian",
+        "tokens_m": 22704.0,
+        "size_gib": 148.3
+    },
+    "ice (B)": {
+        "language": "Icelandic",
+        "tokens_m": 505.0,
+        "size_gib": 3.2
+    },
+    "ita": {
+        "language": "Italian",
+        "tokens_m": 4983.0,
+        "size_gib": 30.2
+    },
+    "jpn": {
+        "language": "Japanese",
+        "tokens_m": 530.0,
+        "size_gib": 69.3
+    },
+    "jav": {
+        "language": "Javanese",
+        "tokens_m": 24.0,
+        "size_gib": 0.2
+    },
+    "geo (B)": {
+        "language": "Georgian",
+        "tokens_m": 469.0,
+        "size_gib": 9.1
+    },
+    "kaz": {
+        "language": "Kazakh",
+        "tokens_m": 476.0,
+        "size_gib": 6.4
+    },
+    "khm": {
+        "language": "Khmer",
+        "tokens_m": 36.0,
+        "size_gib": 1.5
+    },
+    "kan": {
+        "language": "Kannada",
+        "tokens_m": 169.0,
+        "size_gib": 3.3
+    },
+    "kor": {
+        "language": "Korean",
+        "tokens_m": 5644.0,
+        "size_gib": 54.2
+    },
+    "kur": {
+        "language": "Kurdish(Kurmanji)",
+        "tokens_m": 66.0,
+        "size_gib": 0.4
+    },
+    "kir": {
+        "language": "Kyrgyz",
+        "tokens_m": 94.0,
+        "size_gib": 1.2
+    },
+    "lat": {
+        "language": "Latin",
+        "tokens_m": 390.0,
+        "size_gib": 2.5
+    },
+    "lao": {
+        "language": "Lao",
+        "tokens_m": 17.0,
+        "size_gib": 0.6
+    },
+    "lit": {
+        "language": "Lithuanian",
+        "tokens_m": 1835.0,
+        "size_gib": 13.7
+    },
+    "lav": {
+        "language": "Latvian",
+        "tokens_m": 1198.0,
+        "size_gib": 8.8
+    },
+    "mlg": {
+        "language": "Malagasy",
+        "tokens_m": 25.0,
+        "size_gib": 0.2
+    },
+    "mac (B)": {
+        "language": "Macedonian",
+        "tokens_m": 449.0,
+        "size_gib": 4.8
+    },
+    "mal": {
+        "language": "Malayalam",
+        "tokens_m": 313.0,
+        "size_gib": 7.6
+    },
+    "mon": {
+        "language": "Mongolian",
+        "tokens_m": 248.0,
+        "size_gib": 3.0
+    },
+    "mar": {
+        "language": "Marathi",
+        "tokens_m": 175.0,
+        "size_gib": 2.8
+    },
+    "may (B)": {
+        "language": "Malay",
+        "tokens_m": 1318.0,
+        "size_gib": 8.5
+    },
+    "bur (B)": {
+        "language": "Burmese",
+        "tokens_m": 56.0,
+        "size_gib": 1.6
+    },
+    "nep": {
+        "language": "Nepali",
+        "tokens_m": 237.0,
+        "size_gib": 3.8
+    },
+    "dut (B)": {
+        "language": "Dutch",
+        "tokens_m": 5025.0,
+        "size_gib": 29.3
+    },
+    "nor": {
+        "language": "Norwegian",
+        "tokens_m": 8494.0,
+        "size_gib": 49.0
+    },
+    "orm": {
+        "language": "Oromo",
+        "tokens_m": 8.0,
+        "size_gib": 0.1
+    },
+    "ori": {
+        "language": "Oriya",
+        "tokens_m": 36.0,
+        "size_gib": 0.6
+    },
+    "pan": {
+        "language": "Punjabi",
+        "tokens_m": 68.0,
+        "size_gib": 0.8
+    },
+    "pol": {
+        "language": "Polish",
+        "tokens_m": 6490.0,
+        "size_gib": 44.6
+    },
+    "pus": {
+        "language": "Pashto",
+        "tokens_m": 96.0,
+        "size_gib": 0.7
+    },
+    "por": {
+        "language": "Portuguese",
+        "tokens_m": 8405.0,
+        "size_gib": 49.1
+    },
+    "rum (B)": {
+        "language": "Romanian",
+        "tokens_m": 10354.0,
+        "size_gib": 61.4
+    },
+    "rus": {
+        "language": "Russian",
+        "tokens_m": 23408.0,
+        "size_gib": 278.0
+    },
+    "san": {
+        "language": "Sanskrit",
+        "tokens_m": 17.0,
+        "size_gib": 0.3
+    },
+    "snd": {
+        "language": "Sindhi",
+        "tokens_m": 50.0,
+        "size_gib": 0.4
+    },
+    "sin": {
+        "language": "Sinhala",
+        "tokens_m": 243.0,
+        "size_gib": 3.6
+    },
+    "slo (B)": {
+        "language": "Slovak",
+        "tokens_m": 3525.0,
+        "size_gib": 23.2
+    },
+    "slv": {
+        "language": "Slovenian",
+        "tokens_m": 1669.0,
+        "size_gib": 10.3
+    },
+    "som": {
+        "language": "Somali",
+        "tokens_m": 62.0,
+        "size_gib": 0.4
+    },
+    "alb (B)": {
+        "language": "Albanian",
+        "tokens_m": 918.0,
+        "size_gib": 5.4
+    },
+    "srp": {
+        "language": "Serbian",
+        "tokens_m": 843.0,
+        "size_gib": 9.1
+    },
+    "sun": {
+        "language": "Sundanese",
+        "tokens_m": 10.0,
+        "size_gib": 0.1
+    },
+    "swe": {
+        "language": "Swedish",
+        "tokens_m": 77.8,
+        "size_gib": 12.1
+    },
+    "swa": {
+        "language": "Swahili",
+        "tokens_m": 275.0,
+        "size_gib": 1.6
+    },
+    "tam": {
+        "language": "Tamil",
+        "tokens_m": 595.0,
+        "size_gib": 12.2
+    },
+    "tel": {
+        "language": "Telugu",
+        "tokens_m": 249.0,
+        "size_gib": 4.7
+    },
+    "tha": {
+        "language": "Thai",
+        "tokens_m": 1834.0,
+        "size_gib": 71.7
+    },
+    "tgl": {
+        "language": "Filipino",
+        "tokens_m": 556.0,
+        "size_gib": 3.1
+    },
+    "tur": {
+        "language": "Turkish",
+        "tokens_m": 2736.0,
+        "size_gib": 20.9
+    },
+    "uig": {
+        "language": "Uyghur",
+        "tokens_m": 27.0,
+        "size_gib": 0.4
+    },
+    "ukr": {
+        "language": "Ukrainian",
+        "tokens_m": 6.5,
+        "size_gib": 84.6
+    },
+    "urd": {
+        "language": "Urdu",
+        "tokens_m": 730.0,
+        "size_gib": 5.7
+    },
+    "uzb": {
+        "language": "Uzbek",
+        "tokens_m": 91.0,
+        "size_gib": 0.7
+    },
+    "vie": {
+        "language": "Vietnamese",
+        "tokens_m": 24757.0,
+        "size_gib": 137.3
+    },
+    "xho": {
+        "language": "Xhosa",
+        "tokens_m": 13.0,
+        "size_gib": 0.1
+    },
+    "yid": {
+        "language": "Yiddish",
+        "tokens_m": 34.0,
+        "size_gib": 0.3
+    },
+    "chi (B)": {
+        "language": "Chinese(Traditional)",
+        "tokens_m": 176.0,
+        "size_gib": 16.6
+    }
+}

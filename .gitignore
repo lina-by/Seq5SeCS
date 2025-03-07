@@ -1,8 +1,10 @@
 .venv
 venv
-*.ipynb
+.ipynb
 private
 data
 new_data
 submits
 old_scripts
+tf_idf**
+languages_in_roberta**
