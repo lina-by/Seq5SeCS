@@ -12,7 +12,11 @@ from transformers import (AutoModelForSequenceClassification, AutoTokenizer,
 
 
 def tokenize_text(sequence):
-    """Tokenize input sequence."""
+    """
+    Tokenize input sequence. Maximum sequence length is 128 because most
+    of the sentences do not exceed this length except for a few ones.
+    Experiments show that 128 is good enough for the application.
+    """
     return tokenizer(sequence["text"], truncation=True, max_length=128)
 
 
@@ -23,18 +27,19 @@ def encode_labels(example):
 
 
 def compute_metrics(pred):
-    """Custom metric to be used during training."""
+    """Metrics to be used during training. We use accuracy and f1 score."""
     labels = pred.label_ids
     preds = pred.predictions.argmax(-1)
     acc = accuracy_score(labels, preds)
     f1 = f1_score(labels, preds, average="weighted")
     return {"accuracy": acc, "f1": f1}
 
-
+#Load the dataframe for training
 train_data = pd.read_csv("train_submission.csv", encoding="utf-8")
 train_data = train_data.dropna()
 sentences, labels = train_data["Text"], train_data["Label"]
 
+#10% for validation, 10% for test
 sentences_train, sentences_test, labels_train, labels_test = train_test_split(
     sentences, labels, test_size=0.2, random_state=42
 )
@@ -50,9 +55,11 @@ print(
     f"Train / valid / test samples: {len(ds_train)} / {len(ds_valid)} / {len(ds_test)}"
 )
 
+#Load the XLM-RoBERTa model
 model_ckpt = "xlm-roberta-base"
 tokenizer = AutoTokenizer.from_pretrained(model_ckpt)
 
+#Tokenize the sentences and encode the labels
 tok_train = ds_train.map(tokenize_text, batched=True)
 tok_valid = ds_valid.map(tokenize_text, batched=True)
 tok_test = ds_test.map(tokenize_text, batched=True)
@@ -71,6 +78,7 @@ model = AutoModelForSequenceClassification.from_pretrained(
     model_ckpt, num_labels=len(all_langs), id2label=id2label, label2id=label2id
 )
 
+#Hyperparameters for fine-tuning
 epochs = 10
 lr = 2e-5
 train_bs = 64
@@ -79,15 +87,20 @@ eval_bs = train_bs * 2
 logging_steps = len(tok_train) // train_bs
 output_dir = "xlm-roberta-base-finetuned-language-detection"
 
+#Add warmup and weight decay to improve fine-tuning
 training_args = TrainingArguments(
-    output_dir=output_dir,
     num_train_epochs=epochs,
     learning_rate=lr,
     per_device_train_batch_size=train_bs,
     per_device_eval_batch_size=eval_bs,
     evaluation_strategy="epoch",
     logging_steps=logging_steps,
+    save_total_limit = 2,
+    load_best_model_at_end = True,
     fp16=True,
+    save_strategy = "epoch",
+    warmup_ratio=0.1,
+    weight_decay=0.06
 )
 
 trainer = Trainer(
@@ -100,8 +113,10 @@ trainer = Trainer(
     tokenizer=tokenizer,
 )
 
+#Training the model
 trainer.train()
 
+#Evaluation on the test split
 device = 0 if torch.cuda.is_available() else -1
 model_ckpt = "xlm-roberta-base-finetuned-language-detection"
 pipe = pipeline("text-classification", model=model_ckpt, device=device)
